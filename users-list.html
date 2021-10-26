@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>لیست کاربران</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <script src="assets/js/bootstrap.bundle.min.js" defer></script>
+        <script src="assets/js/plugin/sweetalert2.all.min.js"></script>
+        <script src="assets/js/script.js" defer></script>
+    </head>
+    <body id="users-list">
+        <nav class="navigation">
+            <div class="user-details">
+                <img src="assets/img/avatar-boy.png" alt="" />
+                <div class="user-info">
+                    <span class="user-info__name">اشکان رضایی</span>
+                    <span class="user-info__role">مدیر</span>
+                </div>
+            </div>
+            <div class="user-actions">
+                <!-- Mr -->
+                <a class="add-nav" href="add-user.html"> افزودن کاربر</a>
+
+                <a href="login.html">خروج</a>
+            </div>
+        </nav>
+
+        <main class="container mt-3 p-2 text-center">
+            <h1>لیست کاربران</h1>
+            <table id="users-list" class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th>نام کاربری</th>
+                        <th>نام</th>
+                        <th>نام خانوادگی</th>
+                        <th>کد ملی</th>
+                        <th>تاریخ تولد</th>
+                        <th>شهر</th>
+                        <th>تلفن همراه</th>
+                        <th>آدرس</th>
+                        <th>نقش</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </main>
+
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changePasswordLabel">تغییر رمز عبور</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="id" />
+                        <div class="row">
+                            <div class="col-12 col-md-6 form-group">
+                                <label for="password">رمز عبور</label>
+                                <input type="password" name="password" id="password" placeholder="رمز عبور جدید" class="form-control" />
+                                <span class="error-text"></span>
+                            </div>
+                            <div class="col-12 col-md-6 form-group">
+                                <label for="confirmPassword">تکرار رمز عبور</label>
+                                <input
+                                    type="password"
+                                    name="confirmPassword"
+                                    id="confirmPassword"
+                                    placeholder="تکرار رمز عبور جدید"
+                                    class="form-control"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">انصراف</button>
+                        <button type="button" onclick="changePassword()" class="btn btn-secondary">ثبت</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

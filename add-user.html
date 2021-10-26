@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>افزودن کاربر</title>
+		<link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css" />
+		<script src="assets/js/bootstrap.bundle.min.js" defer></script>
+
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body id="users-add">
+		<nav class="navigation">
+			<div class="user-details">
+				<img src="assets/img/avatar-boy.png" alt="" />
+				<div class="user-info">
+					<span class="user-info__name">اشکان رضایی</span><span class="user-info__role">مدیر</span>
+				</div>
+			</div>
+			<div class="user-actions">
+				<a href="users-list.html">بازگشت</a>
+			</div>
+		</nav>
+
+		<div class="login-form-wrapper users-add-wrapper">
+			<div class="login-form users-add-form">
+				<div class="login-form__header">
+					<img src="assets/img/add-user.png" class="login-form__icon" alt="" />
+					<h2 class="login-form__title">افزودن کاربر جدید</h2>
+				</div>
+				<form id="add-user-form" method="POST">
+					<div class="row">
+						<div class="col-12 col-md-4 form-group">
+							<label for="firstname">نام</label>
+							<input type="text" class="form-control" id="firstname" placeholder="نام را وارد کنید" />
+						</div>
+						<div class="col-12 col-md-4 form-group">
+							<label for="lastname">نام خانوادگی</label>
+							<input
+								type="text"
+								class="form-control"
+								id="lastname"
+								placeholder="نام خانوادگی را وارد کنید"
+							/>
+						</div>
+
+						<div class="col-12 col-md-4 form-group">
+							<label for="nationalCode">کدملی</label
+							><input
+								type="text"
+								id="nationalCode"
+								name="nationalCode"
+								class="form-control"
+								placeholder="کدملی  را وارد کنید"
+							/>
+						</div>
+
+						<div class="col-12 col-md-4 form-group">
+							<label for="birthDate">تاریخ تولد</label
+							><input
+								type="text"
+								id="birthDate"
+								name="birthDate"
+								class="form-control"
+								placeholder="تاریخ تولد  را وارد کنید"
+							/>
+						</div>
+
+						<div class="col-12 col-md-4 form-group">
+							<label for="mobile">شماره موبایل</label
+							><input
+								type="text"
+								id="mobile"
+								name="mobile"
+								class="form-control"
+								placeholder="شماره موبایل را وارد کنید"
+							/>
+						</div>
+
+						<div class="col-12 col-md-4 form-group">
+							<label for="city">شهر</label>
+							<input
+								type="text"
+								id="city"
+								name="city"
+								class="form-control"
+								placeholder="شهر را وارد کنید"
+							/>
+						</div>
+
+						<div class="col-12 col-md-4 form-group">
+							<label for="address">آدرس </label
+							><input
+								type="text"
+								id="address"
+								name="address"
+								class="form-control"
+								placeholder="آدرس را وارد کنید"
+							/>
+						</div>
+
+						<div class="col-12 col-md-4">
+							<div class="form-group">
+								<label for="username">نام کاربری</label
+								><input
+									type="text"
+									id="username"
+									class="form-control"
+									name="username"
+									autocomplete="off"
+									placeholder="نام کاربری را وارد کنید"
+								/>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-4 form-group">
+							<label for="role">نقش </label
+							><input
+								type="text"
+								id="role"
+								name="role"
+								class="form-control"
+								placeholder="نقش را وارد کنید"
+							/>
+						</div>
+
+						<div class="col-12 col-md-6 form-group">
+							<label for="password">رمز عبور</label
+							><input
+								type="password"
+								id="password"
+								name="password"
+								class="form-control"
+								placeholder="رمز عبور  را وارد کنید"
+							/>
+							<span class="error-text"></span>
+						</div>
+
+						<div class="col-12 col-md-6 form-group">
+							<label for="confirm-password">تکرار رمز عبور</label
+							><input
+								type="password"
+								id="confirm-password"
+								name="confirm-password"
+								class="form-control"
+								placeholder="تکرار رمز عبور  را وارد کنید"
+							/>
+						</div>
+					</div>
+					<!-- END::ROW -->
+
+					<div class="row mt-2">
+						<div class="col-6">
+							<button class="btn btn-secondary btn-block" type="submit">ثبت</button>
+						</div>
+						<div class="col-6">
+							<a href="users-list.html" class="btn btn-dark btn-block" type="button"> انصراف </a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script src="assets/js/script.js"></script>
+</html>

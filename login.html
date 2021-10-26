@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ورود</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <script src="assets/js/bootstrap.bundle.min.js" defer></script>
+        <script src="assets/js/script.js" defer></script>
+    </head>
+    <body>
+        <div class="login-form-wrapper">
+            <div class="login-form">
+                <div class="login-form__header">
+                    <img src="assets/img/login.png" class="login-form__icon" alt="" />
+                    <h2 class="login-form__title">ورود به حساب کاربری</h2>
+                </div>
+
+                <form id="login" method="POST">
+                    <div class="form-group">
+                        <label for="username">نام کاربری</label>
+                        <input
+                            type="text"
+                            id="username"
+                            class="form-control"
+                            name="username"
+                            autocomplete="off"
+                            placeholder="نام کاربری را وارد کنید"
+                        />
+                        <span class="error-text"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">پسورد</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="پسورد را وارد کنید"
+                        />
+                        <span class="error-text"></span>
+                    </div>
+
+                    <button class="btn btn-secondary btn-block mt-2" type="submit">وارد شوید</button>
+                </form>
+
+                <div class="login-form__footer">حساب کاربری ندارید؟ <a href="#">ساختن حساب کاربری</a></div>
+            </div>
+        </div>
+    </body>
+</html>

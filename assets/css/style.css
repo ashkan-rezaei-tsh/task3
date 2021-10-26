@@ -1,0 +1,683 @@
+:root {
+    --primary-color: #b9b9b9;
+    --primary-color-hover: #a7a6a6;
+    --primary-bg: #202124;
+    --secondary-color: #32bea6;
+    --secondary-color-hover: #2d9684;
+    --contrast-color: #fff;
+    --error-color: #e94631;
+    --danger-color: #b32c1b;
+    --danger-color-hover: #96281a;
+    --warning-color: #d87d32;
+    --warning-color-hover: #c46d25;
+    writing-mode: horizontal-tb;
+    direction: rtl;
+    text-orientation: sideways-right;
+}
+
+@font-face {
+    font-family: vazir;
+    font-weight: normal;
+    src: url(../fonts/vazir-regular.eot) format("eot"), url(../fonts/vazir-regular.ttf) format("truetype"),
+        url(../fonts/vazir-regular.woff) format("woff"), url(../fonts/vazir-regular.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: vazir;
+    font-weight: bold;
+    src: url(../fonts/vazir-bold.eot) format("eot"), url(../fonts/vazir-bold.ttf) format("truetype"), url(../fonts/vazir-bold.woff) format("woff"),
+        url(../fonts/vazir-bold.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: vazir;
+    font-weight: 300;
+    src: url(../fonts/vazir-light.eot) format("eot"), url(../fonts/vazir-light.ttf) format("truetype"), url(../fonts/vazir-light.woff) format("woff"),
+        url(../fonts/vazir-light.woff2) format("woff2");
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    outline: none;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+    font-family: vazir, sans-serif, tahoma;
+    font-size: 1rem/16px;
+    font-weight: normal;
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color-hover);
+}
+
+.container {
+    display: block;
+    width: 90%;
+    margin-inline: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 80%;
+    }
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.login-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: min(90vw, 450px);
+    padding: 3rem 1.5rem;
+    box-shadow: 0 0 10px 0px #32bea6;
+    border-radius: 0.75rem;
+    margin-block-end: 1.5rem;
+}
+
+/* MR */
+.users-add-form {
+    min-width: min(90%, 800px);
+}
+
+.users-add-wrapper {
+    min-height: calc(100vh - 70px);
+}
+
+.user-add-rows {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-form__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-block-end: 2rem;
+}
+
+.login-form__icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-block-end: 1rem;
+}
+
+.login-form__title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.login-form__footer {
+    min-height: 80px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-block-end: 1rem;
+}
+
+.form-group label {
+    margin-block-end: 0.5rem;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    border: 1px solid var(--secondary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.form-control.invalid {
+    border-color: var(--error-color);
+}
+
+.error-text {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.btn-primary {
+    color: var(--primary-bg);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    color: var(--primary-bg);
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
+}
+
+.btn-danger {
+    color: var(--primary-color);
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    color: var(--primary-color);
+    background-color: var(--danger-color-hover);
+    border-color: var(--danger-color-hover);
+}
+
+.btn-warning {
+    color: var(--primary-bg);
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+.btn-warning:hover {
+    color: var(--primary-bg);
+    background-color: var(--warning-color-hover);
+    border-color: var(--warning-color-hover);
+}
+
+.btn-secondary {
+    color: var(--contrast-color);
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    color: var(--contrast-color);
+    background-color: var(--secondary-color-hover);
+    border-color: var(--secondary-color-hover);
+}
+
+.btn-outline-secondary {
+    color: var(--secondary-color);
+    background-color: transparent;
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+    color: var(--contrast-color);
+    background-color: var(--secondary-color);
+}
+
+.btn.btn-block {
+    width: 100%;
+}
+
+.btn img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+/* MARGIN */
+.mt-1 {
+    margin-block-start: 0.5rem;
+}
+
+.mt-2 {
+    margin-block-start: 1rem;
+}
+
+.mt-3 {
+    margin-block-start: 1.5rem;
+}
+
+.mt-4 {
+    margin-block-start: 2rem;
+}
+
+.mt-5 {
+    margin-block-start: 2.5rem;
+}
+
+.mt-6 {
+    margin-block-start: 3rem;
+}
+
+.mb-1 {
+    margin-block-end: 0.5rem;
+}
+
+.mb-2 {
+    margin-block-end: 1rem;
+}
+
+.mb-3 {
+    margin-block-end: 1.5rem;
+}
+
+.mb-4 {
+    margin-block-end: 2rem;
+}
+
+.mb-5 {
+    margin-block-end: 2.5rem;
+}
+
+.mb-6 {
+    margin-block-end: 3rem;
+}
+
+.ms-1 {
+    margin-inline-start: 0.5rem;
+}
+
+.ms-2 {
+    margin-inline-start: 1rem;
+}
+
+.ms-3 {
+    margin-inline-start: 1.5rem;
+}
+
+.ms-4 {
+    margin-inline-start: 2rem;
+}
+
+.ms-5 {
+    margin-inline-start: 2.5rem;
+}
+
+.ms-6 {
+    margin-inline-start: 3rem;
+}
+
+.me-1 {
+    margin-block-end: 0.5rem;
+}
+
+.me-2 {
+    margin-block-end: 1rem;
+}
+
+.me-3 {
+    margin-block-end: 1.5rem;
+}
+
+.me-4 {
+    margin-block-end: 2rem;
+}
+
+.me-5 {
+    margin-block-end: 2.5rem;
+}
+
+.me-6 {
+    margin-block-end: 3rem;
+}
+
+.mx-1 {
+    margin-inline: 0.5rem;
+}
+
+.mx-2 {
+    margin-inline: 1rem;
+}
+
+.mx-3 {
+    margin-inline: 1.5rem;
+}
+
+.mx-4 {
+    margin-inline: 2rem;
+}
+
+.mx-5 {
+    margin-inline: 2.5rem;
+}
+
+.mx-6 {
+    margin-inline: 3rem;
+}
+
+.my-1 {
+    margin-block: 0.5rem;
+}
+
+.my-2 {
+    margin-block: 1rem;
+}
+
+.my-3 {
+    margin-block: 1.5rem;
+}
+
+.my-4 {
+    margin-block: 2rem;
+}
+
+.my-5 {
+    margin-block: 2.5rem;
+}
+
+.my-6 {
+    margin-block: 3rem;
+}
+
+.m-1 {
+    margin: 0.5rem;
+}
+
+.m-2 {
+    margin: 1rem;
+}
+
+.m-3 {
+    margin: 1.5rem;
+}
+
+.m-4 {
+    margin: 2rem;
+}
+
+.m-5 {
+    margin: 2.5rem;
+}
+
+.m-6 {
+    margin: 3rem;
+}
+
+/* MR */
+.m-7 {
+    margin-block-end: 0.5rem;
+    margin-top: 0px;
+}
+
+.m-8 {
+    margin-right: 3.8rem;
+}
+
+/*  */
+
+/* PADDING */
+.pt-1 {
+    padding-block-start: 0.5rem;
+}
+
+.pt-2 {
+    padding-block-start: 1rem;
+}
+
+.pt-3 {
+    padding-block-start: 1.5rem;
+}
+
+.pt-4 {
+    padding-block-start: 2rem;
+}
+
+.pt-5 {
+    padding-block-start: 2.5rem;
+}
+
+.pt-6 {
+    padding-block-start: 3rem;
+}
+
+.pb-1 {
+    padding-block-end: 0.5rem;
+}
+
+.pb-2 {
+    padding-block-end: 1rem;
+}
+
+.pb-3 {
+    padding-block-end: 1.5rem;
+}
+
+.pb-4 {
+    padding-block-end: 2rem;
+}
+
+.pb-5 {
+    padding-block-end: 2.5rem;
+}
+
+.pb-6 {
+    padding-block-end: 3rem;
+}
+
+.ps-1 {
+    padding-inline-start: 0.5rem;
+}
+
+.ps-2 {
+    padding-inline-start: 1rem;
+}
+
+.ps-3 {
+    padding-inline-start: 1.5rem;
+}
+
+.ps-4 {
+    padding-inline-start: 2rem;
+}
+
+.ps-5 {
+    padding-inline-start: 2.5rem;
+}
+
+.ps-6 {
+    padding-inline-start: 3rem;
+}
+
+.pe-1 {
+    padding-block-end: 0.5rem;
+}
+
+.pe-2 {
+    padding-block-end: 1rem;
+}
+
+.pe-3 {
+    padding-block-end: 1.5rem;
+}
+
+.pe-4 {
+    padding-block-end: 2rem;
+}
+
+.pe-5 {
+    padding-block-end: 2.5rem;
+}
+
+.pe-6 {
+    padding-block-end: 3rem;
+}
+
+.px-1 {
+    padding-inline: 0.5rem;
+}
+
+.px-2 {
+    padding-inline: 1rem;
+}
+
+.px-3 {
+    padding-inline: 1.5rem;
+}
+
+.px-4 {
+    padding-inline: 2rem;
+}
+
+.px-5 {
+    padding-inline: 2.5rem;
+}
+
+.px-6 {
+    padding-inline: 3rem;
+}
+
+.py-1 {
+    padding-block: 0.5rem;
+}
+
+.py-2 {
+    padding-block: 1rem;
+}
+
+.py-3 {
+    padding-block: 1.5rem;
+}
+
+.py-4 {
+    padding-block: 2rem;
+}
+
+.py-5 {
+    padding-block: 2.5rem;
+}
+
+.py-6 {
+    padding-block: 3rem;
+}
+
+.p-1 {
+    padding: 0.5rem;
+}
+
+.p-2 {
+    padding: 1rem;
+}
+
+.p-3 {
+    padding: 1.5rem;
+}
+
+.p-4 {
+    padding: 2rem;
+}
+
+.p-5 {
+    padding: 2.5rem;
+}
+
+.p-6 {
+    padding: 3rem;
+}
+
+/*TABLE*/
+.table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 1rem 0.6rem;
+    font-weight: bold;
+    color: var(--contrast-color);
+}
+
+.table td {
+    color: var(--primary-color);
+    vertical-align: baseline;
+}
+
+.table.table-stripped tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgb(43, 138, 123) !important;
+}
+
+.table tbody tr:hover td {
+    color: var(--contrast-color) !important;
+}
+
+/*USERS-LIST PAGE*/
+.navigation {
+    padding: 0.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    box-shadow: 0 3px 6px 0 var(--secondary-color);
+}
+
+.navigation .user-details {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.navigation .user-details img {
+    width: 60px;
+    height: 60px;
+}
+
+.navigation .user-details .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-info__name {
+    color: var(--contrast-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* MR */
+.add-nav {
+    margin-left: 1rem;
+}
+
+.modal-content {
+    background-color: var(--primary-bg);
+}
