@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>مدارک کاربر</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css" />
+        <script src="assets/js/bootstrap.bundle.min.js" defer></script>
+
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+    <body id="user-documents">
+        <nav class="navigation">
+            <div class="user-details">
+                <img src="assets/img/avatar-boy.png" alt="" />
+                <div class="user-info"><span class="user-info__name">اشکان رضایی</span> <span class="user-info__role">مدیر</span></div>
+            </div>
+            <div class="user-actions">
+                <a href="users-list.html">بازگشت</a>
+            </div>
+        </nav>
+
+        <div class="login-form-wrapper users-add-wrapper">
+            <div class="login-form users-add-form">
+                <div class="login-form__header">
+                    <img src="assets/img/add-user.png" class="login-form__icon" alt="" />
+                    <h2 class="login-form__title">مدارک کاربر</h2>
+                </div>
+                <div class="user-images-wrapper">
+                    <label class="user-image-box">
+                        <img src="" alt="" id="user-image__1" />
+                        <input type="file" id="user-image__input1" class="d-none" accept="image/*" />
+                    </label>
+                    <label class="user-image-box">
+                        <img src="" alt="" id="user-image__2" />
+                        <input type="file" id="user-image__input2" class="d-none" accept="image/*" />
+                    </label>
+                    <label class="user-image-box">
+                        <img src="" alt="" id="user-image__3" />
+                        <input type="file" id="user-image__input3" class="d-none" accept="image/*" />
+                    </label>
+                    <label class="user-image-box">
+                        <img src="" alt="" id="user-image__4" />
+                        <input type="file" id="user-image__input4" class="d-none" accept="image/*" />
+                    </label>
+                </div>
+
+                <div class="text-center">
+                    <button type="button" onclick="saveUserImages()" class="btn btn-outline-secondary mt-4">ثبت</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="assets/js/script.js"></script>
+</html>

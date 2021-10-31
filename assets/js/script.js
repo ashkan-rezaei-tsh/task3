@@ -11,8 +11,19 @@ var firstUser = [
         address: "میانرود",
         role: "admin",
         password: "admin",
+        images: {
+            file1: null,
+            file2: null,
+            file3: null,
+            file4: null,
+        },
     },
 ];
+
+if (!document.querySelector("#login-page") && (localStorage.getItem("isLoggedIn") === null || localStorage.getItem("isLoggedIn") == 0)) {
+    localStorage.setItem("isLoggedIn", 0);
+    location.href = "login.html";
+}
 
 if (localStorage.getItem("users") === null) {
     localStorage.setItem("users", JSON.stringify(firstUser));
@@ -20,6 +31,11 @@ if (localStorage.getItem("users") === null) {
 
 if (localStorage.getItem("latestId") === null) {
     localStorage.setItem("latestId", 1);
+}
+
+function logout() {
+    localStorage.setItem("isLoggedIn", 0);
+    location.href = "login.html";
 }
 
 let users = JSON.parse(localStorage.getItem("users") || "[]");
@@ -38,6 +54,7 @@ loginForm &&
 
         if (userIndex > -1 && password.value.toLowerCase() === users[userIndex].password) {
             location.href = "users-list.html";
+            localStorage.setItem("isLoggedIn", 1);
         } else {
             showFormError(username, "نام کاربری یا رمز عبور اشتباه است.");
         }
@@ -75,15 +92,18 @@ users.forEach((user) => {
         <td>${user.address}</td>
         <td>${user.role === "admin" ? "مدیر" : "کاربر"}</td>
         <td>
-            <a href="edit-user.html?id=${user.id}" class="btn btn-primary" title="ویرایش">
-            <img src="assets/img/edit.png" alt="" />
+            <a href="edit-user.html?id=${user.id}" class="btn btn-info" title="ویرایش">
+                <img src="assets/img/edit.png" alt="" />
             </a>
-            <button type="button" class="btn btn-warning" title="تغییر رمز" onclick="changePasswordModal(${user.id})">
-            <img src="assets/img/password.png" alt="" />
-            </button>
             <button type="button" class="btn btn-danger" title="حذف" onclick="deleteUser(${user.id})">
-            <img src="assets/img/delete.png" alt="" />
+                <img src="assets/img/delete.png" alt="" />
             </button>
+             <button type="button" class="btn btn-warning" title="تغییر رمز" onclick="changePasswordModal(${user.id})">
+                <img src="assets/img/password.png" alt="" />
+            </button>
+            <a href="user-documents.html?id=${user.id}" class="btn btn-success" title="افزودن عکس">
+                <img src="assets/img/images.png" alt="" />
+            </a>
         </td>
     </tr>
     `;
@@ -268,3 +288,58 @@ editUserForm &&
         localStorage.setItem("users", JSON.stringify(users));
         location.href = "users-list.html";
     });
+
+const userDocumentsPage = document.getElementById("user-documents");
+
+if (userDocumentsPage) {
+    const userId = location.href.split("id=").pop();
+
+    const id = users.findIndex((user) => user.id == userId);
+
+    if (id < 0 || users[id].images.file1 == null) {
+        document.querySelectorAll('input[type="file"]').forEach((input) => {
+            input.addEventListener("change", (event) => {
+                viewSelectedImage(event);
+            });
+        });
+    } else {
+        let i = 1;
+        document.querySelectorAll(".user-images-wrapper img").forEach((img) => {
+            const parent = img.closest("label");
+            parent.classList.add("filled");
+
+            img.setAttribute("src", users[id].images[`file${i}`]);
+            i++;
+        });
+    }
+}
+
+function viewSelectedImage(event) {
+    const parent = event.target.closest("label");
+    const img = event.target.previousElementSibling;
+
+    let reader = new FileReader();
+
+    reader.onload = (e) => {
+        img.setAttribute("src", e.target.result);
+        parent.classList.add("filled");
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+const saveUserImages = () => {
+    const userId = location.href.split("id=").pop();
+
+    const id = users.findIndex((user) => {
+        return user.id == userId;
+    });
+
+    for (let i = 1; i <= 4; i++) {
+        users[id].images[`file${i}`] = document.querySelector("#user-image__" + i).getAttribute("src");
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    location.href = "users-list.html";
+};

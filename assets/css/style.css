@@ -681,3 +681,55 @@ a:hover {
 .modal-content {
     background-color: var(--primary-bg);
 }
+
+.user-images-wrapper {
+    width: min(90%, 450px);
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-image-box {
+    width: 200px;
+    aspect-ratio: 1/1;
+    border: 1px solid var(--secondary-color);
+    cursor: pointer;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-image-box.filled {
+    cursor: default;
+    pointer-events: none;
+}
+
+.user-image-box:not(.filled) {
+    background-image: url("../img/upload.png");
+    background-size: 48px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--secondary-color);
+    transition: background-color 0.2s linear;
+}
+
+.user-image-box:not(.filled):hover {
+    background-color: var(--secondary-color-hover);
+}
+
+.user-image-box img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    border-radius: 0.75rem;
+}
+
+.user-image-box:not(.filled) img {
+    display: none;
+}
