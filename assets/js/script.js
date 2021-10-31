@@ -217,6 +217,7 @@ addUserForm &&
             const address = document.getElementById("address").value;
             const role = document.getElementById("role").value;
             const password = document.getElementById("password").value;
+            const images = { file1: null, file2: null, file3: null, file4: null };
 
             users.push({
                 id: newId(),
@@ -230,6 +231,7 @@ addUserForm &&
                 address,
                 role,
                 password,
+                images,
             });
 
             localStorage.setItem("users", JSON.stringify(users));
@@ -293,25 +295,23 @@ const userDocumentsPage = document.getElementById("user-documents");
 
 if (userDocumentsPage) {
     const userId = location.href.split("id=").pop();
-
     const id = users.findIndex((user) => user.id == userId);
+    let i = 1;
 
-    if (id < 0 || users[id].images.file1 == null) {
-        document.querySelectorAll('input[type="file"]').forEach((input) => {
-            input.addEventListener("change", (event) => {
-                viewSelectedImage(event);
-            });
+    document.querySelectorAll('input[type="file"]').forEach((input) => {
+        input.addEventListener("change", (event) => {
+            viewSelectedImage(event);
         });
-    } else {
-        let i = 1;
-        document.querySelectorAll(".user-images-wrapper img").forEach((img) => {
-            const parent = img.closest("label");
+    });
+
+    document.querySelectorAll(".user-images-wrapper img").forEach((img) => {
+        const parent = img.closest("label");
+        if (users[id].images[`file${i}`] != null) {
             parent.classList.add("filled");
-
             img.setAttribute("src", users[id].images[`file${i}`]);
-            i++;
-        });
-    }
+        }
+        i++;
+    });
 }
 
 function viewSelectedImage(event) {
@@ -336,7 +336,12 @@ const saveUserImages = () => {
     });
 
     for (let i = 1; i <= 4; i++) {
-        users[id].images[`file${i}`] = document.querySelector("#user-image__" + i).getAttribute("src");
+        const img = document.querySelector("#user-image__" + i).getAttribute("src");
+        if (img != "") {
+            users[id].images[`file${i}`] = document.querySelector("#user-image__" + i).getAttribute("src");
+        } else {
+            users[id].images[`file${i}`] = null;
+        }
     }
 
     localStorage.setItem("users", JSON.stringify(users));
